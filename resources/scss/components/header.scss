@@ -9,10 +9,15 @@ header {
 
         a {
             margin-left: 1em;
+            color: white;
 
             &:first-child {
                 margin-left: 0;
             }
+        }
+
+        .user-info {
+            margin-left: auto;
         }
     }
 }

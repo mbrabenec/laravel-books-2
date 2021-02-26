@@ -11,9 +11,9 @@ function App() {
         <>
             <div className="book-browser">
 
-                <CategoriesBrowser category={ category } />
+                <CategoriesBrowser setCategory={ setCategory } />
 
-                <BookList setCategory={ setCategory }/>
+                <BookList category={ category } />
 
             </div>
         </>

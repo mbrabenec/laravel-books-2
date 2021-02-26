@@ -33,6 +33,10 @@ export default function BookList(props) {
         loadData();
     }, [])
 
+    useEffect(() => {
+        loadData();
+    }, [props.category]);
+
     console.log(data);
 
     let content = '';
@@ -49,7 +53,7 @@ export default function BookList(props) {
             <div className="book-list__list">
                 {
                     data.map(book => (
-                        <div className="book-list__book list-book" key={ book.id }>
+                        <div key={ book.id } className="book-list__book list-book">
                             <div className="list-book__title">{ book.title }</div>
                             <div className="list-book__image">
                                 <img src={ book.image } alt={ book.title + ' cover' } />

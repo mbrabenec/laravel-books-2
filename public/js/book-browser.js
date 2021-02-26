@@ -114,6 +114,9 @@ function BookList(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     loadData();
   }, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    loadData();
+  }, [props.category]);
   console.log(data);
   var content = '';
 
@@ -212,15 +215,20 @@ function CategoriesBrowser(props) {
   var url = '/api/categories'; // change this if necessary
 
   var loadData = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(parent) {
-      var response, _data;
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var parent,
+          response,
+          _data,
+          _args = arguments;
 
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
+              parent = _args.length > 0 && _args[0] !== undefined ? _args[0] : null;
+
               if (!url) {
-                _context.next = 10;
+                _context.next = 11;
                 break;
               }
 
@@ -230,15 +238,15 @@ function CategoriesBrowser(props) {
                 data: null,
                 parent: parent
               });
-              _context.next = 4;
-              return fetch(url + '?parent=' + parent.id);
+              _context.next = 5;
+              return fetch(url + '?parent=' + (parent ? parent.id : ''));
 
-            case 4:
+            case 5:
               response = _context.sent;
-              _context.next = 7;
+              _context.next = 8;
               return response.json();
 
-            case 7:
+            case 8:
               _data = _context.sent;
               setDataState({
                 loading: false,
@@ -247,7 +255,7 @@ function CategoriesBrowser(props) {
               });
               props.setCategory(parent);
 
-            case 10:
+            case 11:
             case "end":
               return _context.stop();
           }
@@ -255,7 +263,7 @@ function CategoriesBrowser(props) {
       }, _callee);
     }));
 
-    return function loadData(_x) {
+    return function loadData() {
       return _ref.apply(this, arguments);
     };
   }();
@@ -265,7 +273,7 @@ function CategoriesBrowser(props) {
   }, []);
 
   var chooseCategory = function chooseCategory(parent) {
-    load_data(parent);
+    loadData(parent);
   };
 
   console.log(data);
@@ -347,9 +355,9 @@ function App() {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "book-browser",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CategoriesBrowser_CategoriesBrowser_jsx__WEBPACK_IMPORTED_MODULE_2__.default, {
-        category: category
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_BookList_BookList_jsx__WEBPACK_IMPORTED_MODULE_3__.default, {
         setCategory: setCategory
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_BookList_BookList_jsx__WEBPACK_IMPORTED_MODULE_3__.default, {
+        category: category
       })]
     })
   });

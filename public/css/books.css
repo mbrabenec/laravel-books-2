@@ -9,9 +9,13 @@ header nav {
 }
 header nav a {
   margin-left: 1em;
+  color: white;
 }
 header nav a:first-child {
   margin-left: 0;
+}
+header nav .user-info {
+  margin-left: auto;
 }
 
 /*# sourceMappingURL=books.css.map*/

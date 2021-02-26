@@ -11,7 +11,7 @@ export default function CategoriesBrowser(props) {
 
     const url = '/api/categories'; // change this if necessary
 
-    const loadData = async (parent) => {
+    const loadData = async (parent = null) => {
         if (url) {
             setDataState({
                 loading: true,
@@ -20,7 +20,7 @@ export default function CategoriesBrowser(props) {
                 parent: parent
             });
 
-            const response = await fetch(url + '?parent=' + parent.id);
+            const response = await fetch(url + '?parent=' + (parent ? parent.id : ''));
             const data = await response.json();
 
             setDataState({
@@ -38,7 +38,7 @@ export default function CategoriesBrowser(props) {
     }, [])
 
     const chooseCategory = (parent) => {
-        load_data(parent)
+        loadData(parent)
     }
 
     console.log(data);
