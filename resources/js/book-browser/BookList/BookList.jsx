@@ -13,8 +13,7 @@ export default function BookList(props) {
     const loadData = async () => {
         if (url) {
             setDataState({
-                loading: true,
-                loaded: false
+                loading: true
             });
 
             const response = await fetch(url + '?category=' + (props.category ? props.category.id : '') + '&offset=' + nr_loaded);
@@ -41,14 +40,7 @@ export default function BookList(props) {
 
     let content = '';
 
-    if (loading) {
-        content = (
-            <div className="loading">
-                <div className="loader"><div></div><div></div><div></div><div></div></div>
-                Loading
-            </div>
-        )
-    } else if (loaded) {
+    if (loaded) {
         content = (
             <div className="book-list__list">
                 {
@@ -69,6 +61,15 @@ export default function BookList(props) {
         <section className="book-list">
 
             { content }
+
+            {
+                loading ? (
+                    <div className="loading">
+                        <div className="loader"><div></div><div></div><div></div><div></div></div>
+                        Loading
+                    </div>
+                ) : ''
+            }
 
             <div className="book-list__more" onClick={ loadData }>
                 Load more

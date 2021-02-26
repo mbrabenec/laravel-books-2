@@ -1,0 +1,48 @@
+.book-browser{
+    display: flex;
+}
+
+.categories-browser {
+    background-color: rgb(241, 211, 171);
+    border-right: 1px solid #999999;
+    margin-right: 1em;
+    padding: 1em;
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    &__categories {
+
+    }
+
+    &__category {
+        color: #444444;
+        cursor: pointer;
+    }
+}
+
+.book-list {
+
+    &__more {
+        background-color: green;
+        color: white;
+        padding: 0.5em 1em;
+        border-radius: 0.25em;
+        display: inline-flex;
+        cursor: pointer;
+    }
+}
+
+.list-book {
+    display: flex;
+
+    &__image {
+        order: -1;
+        margin-right: 1em;
+
+        img {
+            width: 5em;
+        }
+    }
+}
