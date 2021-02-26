@@ -42,6 +42,8 @@ header {
   border-right: 1px solid #999999;
   margin-right: 1em;
   padding: 1em;
+  width: 15em;
+  flex-shrink: 0;
 }
 .categories-browser h2 {
   font-size: 1rem;
@@ -59,16 +61,30 @@ header {
   display: inline-flex;
   cursor: pointer;
 }
+.book-list__list {
+  display: flex;
+  flex-flow: row wrap;
+}
+.book-list__list > * {
+  width: 20%;
+}
 
 .list-book {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.5em;
 }
 .list-book__image {
   order: -1;
-  margin-right: 1em;
+  margin-bottom: 0.5em;
 }
 .list-book__image img {
   width: 5em;
+}
+.list-book__title {
+  font-size: 0.875em;
 }
 
 /*# sourceMappingURL=books.css.map*/

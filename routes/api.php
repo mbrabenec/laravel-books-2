@@ -18,25 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/books', function() {
+//      /api/books
+Route::get('/books', 'Api\BookController@index');
 
-    $book = new \App\Models\Book;
-    $book->id = 1;
-    $book->title = 'Testing book';
-    $book->image = 'https://wordery.com/jackets/72908d42/the-summoners-handbook-taran-matharu-9781444947700.jpg?width=266';
-
-    return [
-        $book
-    ];
-});
-
-Route::get('/categories', function() {
-
-    $category = new \App\Models\Category;
-    $category->id = 1;
-    $category->name = 'Sample category';
-
-    return [
-        $category
-    ];
-});
+//      /api/categories
+Route::get('/categories', 'Api\CategoryController@index');

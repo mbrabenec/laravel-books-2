@@ -22,7 +22,7 @@ export default function BookList(props) {
             setDataState({
                 loading: false,
                 loaded: true,
-                data: data.concat(new_data),
+                data: new_data,
                 nr_loaded: nr_loaded + data.length
             });
         }
