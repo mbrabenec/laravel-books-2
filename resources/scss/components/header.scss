@@ -1,0 +1,18 @@
+header {
+    background-color: rgb(3, 3, 71);
+    color: white;
+    padding: 0.5em 1em;
+    display: flex;
+
+    nav {
+        display: flex;
+
+        a {
+            margin-left: 1em;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+}

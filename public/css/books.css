@@ -1,0 +1,17 @@
+header {
+  background-color: #030347;
+  color: white;
+  padding: 0.5em 1em;
+  display: flex;
+}
+header nav {
+  display: flex;
+}
+header nav a {
+  margin-left: 1em;
+}
+header nav a:first-child {
+  margin-left: 0;
+}
+
+/*# sourceMappingURL=books.css.map*/
