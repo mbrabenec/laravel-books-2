@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/books', function() {
+
+    $book = new \App\Models\Book;
+    $book->title = 'Testing book';
+
+    return [
+        $book
+    ];
+});

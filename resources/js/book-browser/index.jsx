@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import CategoriesBrowser from './CategoriesBrowser/CategoriesBrowser.jsx';
 import BookList from './BookList/BookList.jsx';
@@ -20,4 +20,4 @@ function App() {
     );
 }
 
-ReactDOM.render(<App />, document.getElementById('book-browser-app'));
+ReactDOM.render(<App />, document.querySelector('.book-browser-app'));

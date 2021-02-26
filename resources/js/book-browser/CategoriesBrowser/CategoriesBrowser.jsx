@@ -57,7 +57,7 @@ export default function CategoriesBrowser(props) {
             <div className="categories-browser__categories">
                 {
                     data.map(category => (
-                        <div className="categories-browser__category" onClick={ () => chooseCategory(category) }>
+                        <div key={ category.id } className="categories-browser__category" onClick={ () => chooseCategory(category) }>
                             { category.name }
                         </div>
                     ))

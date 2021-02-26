@@ -52,7 +52,7 @@ function BookList(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     loading: false,
     loaded: false,
-    data: null,
+    data: [],
     nr_loaded: 0
   }),
       _useState2 = _slicedToArray(_useState, 2),
@@ -79,8 +79,7 @@ function BookList(props) {
 
               setDataState({
                 loading: true,
-                loaded: false,
-                data: null
+                loaded: false
               });
               _context.next = 4;
               return fetch(url + '?category=' + (props.category ? props.category.id : '') + '&offset=' + nr_loaded);
@@ -142,7 +141,7 @@ function BookList(props) {
               alt: book.title + ' cover'
             })
           })]
-        });
+        }, book.id);
       })
     });
   }
@@ -290,7 +289,7 @@ function CategoriesBrowser(props) {
             return chooseCategory(category);
           },
           children: category.name
-        });
+        }, category.id);
       })
     });
   }
@@ -339,7 +338,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function App() {
-  var _useState = useState(null),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
       _useState2 = _slicedToArray(_useState, 2),
       category = _useState2[0],
       setCategory = _useState2[1];
@@ -356,7 +355,7 @@ function App() {
   });
 }
 
-react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(App, {}), document.getElementById('book-browser-app'));
+react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(App, {}), document.querySelector('.book-browser-app'));
 
 /***/ }),
 

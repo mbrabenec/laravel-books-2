@@ -4,7 +4,7 @@ export default function BookList(props) {
     const [{loading, loaded, data, nr_loaded}, setDataState] = useState({
         loading: false,
         loaded: false,
-        data: null,
+        data: [],
         nr_loaded: 0
     })
 
@@ -14,8 +14,7 @@ export default function BookList(props) {
         if (url) {
             setDataState({
                 loading: true,
-                loaded: false,
-                data: null
+                loaded: false
             });
 
             const response = await fetch(url + '?category=' + (props.category ? props.category.id : '') + '&offset=' + nr_loaded);
@@ -50,7 +49,7 @@ export default function BookList(props) {
             <div className="book-list__list">
                 {
                     data.map(book => (
-                        <div className="book-list__book list-book">
+                        <div className="book-list__book list-book" key={ book.id }>
                             <div className="list-book__title">{ book.title }</div>
                             <div className="list-book__image">
                                 <img src={ book.image } alt={ book.title + ' cover' } />
