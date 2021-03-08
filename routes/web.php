@@ -17,3 +17,5 @@ Route::get('/', 'IndexController@index');
 
 Route::get('/books', 'BookController@index');
 
+Route::get('/home', 'IndexController@home');
+

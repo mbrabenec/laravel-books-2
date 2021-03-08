@@ -29,4 +29,65 @@ class BookController extends Controller
 
         return $books;
     }
+
+
+    public function bookOfTheWeek()
+    {
+        $book_of_the_week_id = 1089;
+
+        $book = Book::with('authors')->findOrFail($book_of_the_week_id);
+
+        return [
+            'id' => $book->id,
+            'title' => $book->title,
+            'image' => $book->image,
+            'description' => $book->description,
+            'authors' => $book->authors->map(function($author) {
+                return [
+                    'id' => $author->id,
+                    'name' => $author->name
+                ];
+            })
+        ];
+
+        return $book;
+    }
+
+    public function latest()
+    {
+        $latest_books = Book::with('authors')
+            ->orderBy('publication_date', 'desc')
+            ->where('publication_date', '<=', date('Y-m-d'))
+            ->limit(10)
+            ->get();
+
+        // all the data
+        // return $latest_books;
+
+        // only data that we need (using Laravel collection's map method)
+        return $latest_books->map(function($book) {
+            return [
+                'id' => $book->id,
+                'title' => $book->title,
+                'image' => $book->image,
+                'authors' => $book->authors->map(function($author) {
+                    return [
+                        'id' => $author->id,
+                        'name' => $author->name
+                    ];
+                })
+            ];
+        });
+
+        // using PHP's >= 7.4 arrow functions
+        return $latest_books->map(fn($book) => [
+            'id' => $book->id,
+            'title' => $book->title,
+            'image' => $book->image,
+            'authors' => $book->authors->map(fn($author) => [
+                'id' => $author->id,
+                'name' => $author->name
+            ])
+        ]);
+    }
 }

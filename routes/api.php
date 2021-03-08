@@ -23,3 +23,11 @@ Route::get('/books', 'Api\BookController@index');
 
 //      /api/categories
 Route::get('/categories', 'Api\CategoryController@index');
+
+// book of the week
+//      /api/book-of-the-week
+Route::get('/book-of-the-week', 'Api\BookController@bookOfTheWeek');
+
+// latest books
+//      /api/books/latest
+Route::get('/books/latest', 'Api\BookController@latest');
