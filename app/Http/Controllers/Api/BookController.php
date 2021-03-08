@@ -41,6 +41,8 @@ class BookController extends Controller
             'id' => $book->id,
             'title' => $book->title,
             'image' => $book->image,
+            // 'publication_date' => date('M jS, Y' , strtotime($book->publication_date)),
+            'publication_date' => $book->publication_date,
             'description' => $book->description,
             'authors' => $book->authors->map(function($author) {
                 return [
