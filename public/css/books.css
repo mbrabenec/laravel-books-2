@@ -101,4 +101,30 @@ header {
   margin-top: 0;
 }
 
+.book-review {
+  padding: 2em;
+}
+.book-review__headline {
+  font-size: 0.875em;
+}
+.book-review__headline-sub {
+  font-size: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1em;
+}
+.form-group__label {
+  font-weight: bold;
+  color: #999999;
+}
+.form-group input[type=submit] {
+  background-color: green;
+  color: white;
+  border: 0;
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=books.css.map*/

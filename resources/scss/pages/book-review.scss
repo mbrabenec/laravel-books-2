@@ -1,0 +1,29 @@
+.book-review {
+    padding: 2em;
+
+    &__headline {
+        font-size: 0.875em;
+    }
+
+    &__headline-sub {
+        font-size: 2rem;
+    }
+}
+
+.form-group {
+    margin-bottom: 1em;
+
+    &__label {
+        font-weight: bold;
+        color: #999999;
+    }
+
+    input[type="submit"] {
+        background-color: green;
+        color: white;
+        border: 0;
+        padding: 0.5em 1em;
+        border-radius: 0.25em;
+        cursor: pointer;
+    }
+}

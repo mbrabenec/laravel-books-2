@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Author;
 use App\Models\Category;
 use App\Models\Publisher;
+use App\Models\Review;
 
 class Book extends Model
 {
@@ -46,5 +47,10 @@ class Book extends Model
     public function category5()
     {
         return $this->belongsTo(Category::class, 'category_5_id');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 }
