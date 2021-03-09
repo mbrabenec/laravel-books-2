@@ -83,11 +83,9 @@ export default function BookReview(props) {
 
         // if the review was found
         if (response.status == 200) {
-            setValues(previous_values => {
-                return {
-                    ...previous_values,
-                    ...data
-                }
+            setValues({
+                rating: data.rating,
+                text: data.text
             })
         }
     }

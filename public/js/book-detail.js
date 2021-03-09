@@ -486,8 +486,9 @@ function BookReview(props) {
 
               // if the review was found
               if (response.status == 200) {
-                setValues(function (previous_values) {
-                  return _objectSpread(_objectSpread({}, previous_values), data);
+                setValues({
+                  rating: data.rating,
+                  text: data.text
                 });
               }
 
