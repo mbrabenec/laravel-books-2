@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Book;
+use App\Models\Review;
 
 class BookController extends Controller
 {
@@ -112,6 +113,24 @@ class BookController extends Controller
                     'name' => $author->name
                 ];
             })
+        ];
+    }
+
+    /**
+     * handles the submission of the review form
+     */
+    public function review(Request $request, $book_id)
+    {
+        $review = new Review;
+        $review->book_id = $book_id;
+        $review->user_id = 1;
+        $review->rating = $request->input('rating');
+        $review->text = $request->input('text');
+        $review->save();
+
+        return [
+            'status' => 'success',
+            'message' => 'Review was successfully saved'
         ];
     }
 }

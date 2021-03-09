@@ -35,3 +35,7 @@ Route::get('/books/latest', 'Api\BookController@latest');
 // detail of a book
 //      /api/books/123
 Route::get('/books/{book_id}', 'Api\BookController@show');
+
+// handle the review form's submission
+//       /api/books/review/123
+Route::post('/books/review/{book_id}', 'Api\BookController@review');
