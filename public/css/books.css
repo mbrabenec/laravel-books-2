@@ -42,6 +42,8 @@ header {
   border-right: 1px solid #999999;
   margin-right: 1em;
   padding: 1em;
+  width: 15em;
+  flex-shrink: 0;
 }
 .categories-browser h2 {
   font-size: 1rem;
@@ -59,16 +61,70 @@ header {
   display: inline-flex;
   cursor: pointer;
 }
+.book-list__list {
+  display: flex;
+  flex-flow: row wrap;
+}
+.book-list__list > * {
+  width: 20%;
+}
 
 .list-book {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.5em;
 }
 .list-book__image {
   order: -1;
-  margin-right: 1em;
+  margin-bottom: 0.5em;
 }
 .list-book__image img {
   width: 5em;
+}
+.list-book__title {
+  font-size: 0.875em;
+}
+
+.book-detail {
+  display: flex;
+  padding: 2em;
+}
+.book-detail__left {
+  margin-right: 1em;
+}
+.book-detail__image img {
+  max-width: 10em;
+}
+.book-detail__title {
+  margin-top: 0;
+}
+
+.book-review {
+  padding: 2em;
+}
+.book-review__headline {
+  font-size: 0.875em;
+}
+.book-review__headline-sub {
+  font-size: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1em;
+}
+.form-group__label {
+  font-weight: bold;
+  color: #999999;
+}
+.form-group input[type=submit] {
+  background-color: green;
+  color: white;
+  border: 0;
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=books.css.map*/

@@ -18,25 +18,28 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/books', function() {
+//      /api/books
+Route::get('/books', 'Api\BookController@index');
 
-    $book = new \App\Models\Book;
-    $book->id = 1;
-    $book->title = 'Testing book';
-    $book->image = 'https://wordery.com/jackets/72908d42/the-summoners-handbook-taran-matharu-9781444947700.jpg?width=266';
+//      /api/categories
+Route::get('/categories', 'Api\CategoryController@index');
 
-    return [
-        $book
-    ];
-});
+// book of the week
+//      /api/book-of-the-week
+Route::get('/book-of-the-week', 'Api\BookController@bookOfTheWeek');
 
-Route::get('/categories', function() {
+// latest books
+//      /api/books/latest
+Route::get('/books/latest', 'Api\BookController@latest');
 
-    $category = new \App\Models\Category;
-    $category->id = 1;
-    $category->name = 'Sample category';
+// detail of a book
+//      /api/books/123
+Route::get('/books/{book_id}', 'Api\BookController@show');
 
-    return [
-        $category
-    ];
-});
+// handle the review form's submission
+//       /api/books/review/123
+Route::post('/books/review/{book_id}', 'Api\BookController@review');
+
+// get detail about this user's review of a book
+//      /api/books/review/123
+Route::get('/books/review/{book_id}', 'Api\BookController@showReview');
