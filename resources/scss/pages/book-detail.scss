@@ -1,0 +1,18 @@
+.book-detail {
+    display: flex;
+    padding: 2em;
+
+    &__left {
+        margin-right: 1em;
+    }
+
+    &__image {
+        img {
+            max-width: 10em;
+        }
+    }
+
+    &__title {
+        margin-top: 0;
+    }
+}

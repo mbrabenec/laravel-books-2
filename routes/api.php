@@ -31,3 +31,7 @@ Route::get('/book-of-the-week', 'Api\BookController@bookOfTheWeek');
 // latest books
 //      /api/books/latest
 Route::get('/books/latest', 'Api\BookController@latest');
+
+// detail of a book
+//      /api/books/123
+Route::get('/books/{book_id}', 'Api\BookController@show');

@@ -87,4 +87,18 @@ header {
   font-size: 0.875em;
 }
 
+.book-detail {
+  display: flex;
+  padding: 2em;
+}
+.book-detail__left {
+  margin-right: 1em;
+}
+.book-detail__image img {
+  max-width: 10em;
+}
+.book-detail__title {
+  margin-top: 0;
+}
+
 /*# sourceMappingURL=books.css.map*/

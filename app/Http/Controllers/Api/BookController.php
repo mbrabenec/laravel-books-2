@@ -92,4 +92,26 @@ class BookController extends Controller
             ])
         ]);
     }
+
+    /**
+     * provides detailed information about a single book
+     */
+    public function show($book_id)
+    {
+        $book = Book::with('authors')->findOrFail($book_id);
+
+        return [
+            'id' => $book->id,
+            'title' => $book->title,
+            'image' => $book->image,
+            'publication_date' => $book->publication_date,
+            'description' => $book->description,
+            'authors' => $book->authors->map(function($author) {
+                return [
+                    'id' => $author->id,
+                    'name' => $author->name
+                ];
+            })
+        ];
+    }
 }
