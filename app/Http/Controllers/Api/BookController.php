@@ -99,7 +99,9 @@ class BookController extends Controller
      */
     public function show($book_id)
     {
-        $book = Book::with('authors')->findOrFail($book_id);
+        $book = Book::with('authors')
+            ->with('reviews')
+            ->findOrFail($book_id);
 
         return [
             'id' => $book->id,
@@ -112,6 +114,14 @@ class BookController extends Controller
                     'id' => $author->id,
                     'name' => $author->name
                 ];
+            }),
+            'reviews' => $book->reviews->map(function($review) {
+                return [
+                    'id' => $review->id,
+                    'rating' => $review->rating,
+                    'text' => $review->text,
+                    'created_at' => $review->created_at
+                ];
             })
         ];
     }
@@ -121,9 +131,21 @@ class BookController extends Controller
      */
     public function review(Request $request, $book_id)
     {
-        $review = new Review;
-        $review->book_id = $book_id;
-        $review->user_id = 1;
+        $this->validate($request, [
+            'rating' => 'required|numeric|min:0|max:100',
+            'text' => 'required|max:1000'
+        ]);
+
+        $user_id = 1;
+
+        $review = Review::where('book_id', $book_id)->where('user_id', $user_id)->first();
+
+        if ($review === null) {
+            $review = new Review;
+            $review->book_id = $book_id;
+            $review->user_id = $user_id;
+        }
+
         $review->rating = $request->input('rating');
         $review->text = $request->input('text');
         $review->save();
@@ -132,5 +154,14 @@ class BookController extends Controller
             'status' => 'success',
             'message' => 'Review was successfully saved'
         ];
+    }
+
+    public function showReview($book_id)
+    {
+        $user_id = 1;
+
+        $review = Review::where('book_id', $book_id)->where('user_id', $user_id)->firstOrFail();
+
+        return $review;
     }
 }

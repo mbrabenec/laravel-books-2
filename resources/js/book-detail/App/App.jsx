@@ -16,6 +16,8 @@ export default function App() {
 
     const [book, setBook] = useState(null);
 
+    const [success_message, setSuccessMessage] = useState(null);
+
     const loadData = async () => {
         const response = await fetch(`/api/books/${bookId}`);
         const data = await response.json();
@@ -34,10 +36,10 @@ export default function App() {
     return (
         <Switch>
             <Route path="/book/:id/review">
-                <BookReview id={ bookId } book={ book } />
+                <BookReview id={ bookId } book={ book } setSuccessMessage={ setSuccessMessage } reloadBook={ loadData } />
             </Route>
             <Route path="/book/:id">
-                <BookDetail id={ bookId } book={ book } />
+                <BookDetail id={ bookId } book={ book } success_message={ success_message } />
             </Route>
         </Switch>
     )
